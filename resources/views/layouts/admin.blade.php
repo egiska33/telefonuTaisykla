@@ -31,19 +31,19 @@
                 </a>
             </li>
             <li>
-                <a href="{{route('home')}}">Dashboard</a>
+                <a href="{{route('home')}}">Main page</a>
             </li>
             <li>
-                <a href="#">Users list</a>
+                <a href="{{route('users.list')}}">Users list</a>
             </li>
             <li>
-                <a href="#">Repair list</a>
+                <a href="{{route('repairs.list')}}">Repair list</a>
             </li>
             <li>
-                <a href="#">Add Model</a>
+                <a href="{{route('models.add')}}">Add Model</a>
             </li>
             <li>
-                <a href="#">Add Phone</a>
+                <a href="{{route('phones.list')}}">Add Phone</a>
             </li>
 
         </ul>

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Repair;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -22,9 +24,10 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function usersIndex()
     {
-        //
+        $users = User::paginate(5);
+        return view('admin.usersList', compact('users'));
     }
 
     /**
@@ -33,9 +36,11 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function repairsIndex()
     {
-        //
+        $repairs = Repair::latest   ()->paginate(5);
+        return view('admin.repairsList', compact('repairs'));
+
     }
 
     /**

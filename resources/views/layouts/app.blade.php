@@ -52,9 +52,15 @@
                                 </a>
 
                                 <ul class="dropdown-menu">
+                                    @if(Auth::user()->admin)
                                     <li>
-                                        <a href="{{route('user.profile')}}">User Profile</a>
+                                        <a href="{{route('index')}}">Admin panel</a>
                                     </li>
+                                    @else
+                                        <li>
+                                            <a href="{{route('user.profile')}}">User Profile</a>
+                                        </li>
+                                    @endif
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
