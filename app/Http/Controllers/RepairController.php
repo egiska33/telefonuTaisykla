@@ -66,7 +66,10 @@ class RepairController extends Controller
      */
     public function edit(Repair $repair)
     {
-        //
+        $repair = Repair::findOrFail($repair->id);
+
+        $models = PhoneModel::all();
+        return view('repair.update', compact('models', 'repair'));
     }
 
     /**
@@ -76,9 +79,12 @@ class RepairController extends Controller
      * @param  \App\Repair  $repair
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Repair $repair)
+    public function update(StoreRepairRequest $request, Repair $repair)
     {
-        //
+        $repair->model_id = $request->model_id;
+        $repair->message = $request->message;
+        $repair->update();
+        return redirect()->route('home')->with(['message'=>'Aciu jusu duomenys atnaujinti']);
     }
 
     /**

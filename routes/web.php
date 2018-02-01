@@ -20,6 +20,6 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::group(['middleware'=> ['auth']], function () {
-    Route::resource('/addRepair', 'RepairController');
+    Route::resource('/repair', 'RepairController');
     Route::get('/userProfile', 'UserController@index')->name('user.profile');
 });

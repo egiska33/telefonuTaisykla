@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $repairs = Repair::paginate(5);
+        $repairs = Repair::latest()->paginate(5);
         return view('home', compact('repairs'));
     }
 }

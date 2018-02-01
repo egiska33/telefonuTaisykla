@@ -29,7 +29,7 @@
                     <th>{{$repair->user->name}}</th>
                     <td>{{$repair->model->manufacturer->name}} {{$repair->model->model}}</td>
                     <td>{{$repair->message}}</td>
-                    <td>{{$repair->created_at}}</td>
+                    <td>{{$repair->created_at->diffForHumans()}}</td>
                 </tr>
             @endforeach
 
@@ -38,7 +38,7 @@
     </div>
     <p>
         {{ $repairs->links() }}
-        <a href="{{route('addRepair.create')}}" class="btn btn-primary pull-right">Add</a>
+        <a href="{{route('repair.create')}}" class="btn btn-primary pull-right">Add</a>
     </p>
 </div>
 @endsection
