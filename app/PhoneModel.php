@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class PhoneModel extends Model
 {
+    protected $fillable = ['manufacturer_id', 'model'];
     public function repairs()
     {
         return $this->hasMany(Repair::class);

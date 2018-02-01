@@ -28,7 +28,9 @@ Route::group(['middleware'=> ['auth', 'admin'], 'prefix'=>'admin'], function (){
     Route::get('/', 'Admin\AdminController@index')->name('index');
     Route::get('/users', 'Admin\AdminController@usersIndex')->name('users.list');
     Route::get('/repairs', 'Admin\AdminController@repairsIndex')->name('repairs.list');
-    Route::get('/models', 'Admin\AdminController@modelscreate')->name('models.add');
-    Route::get('/manuakturers', 'Admin\AdminController@phonesIndex')->name('phones.list');
+    Route::get('/models/add', 'Admin\AdminController@modelsCreate')->name('models.add');
+    Route::get('/manufakturers/add', 'Admin\AdminController@phonesCreate')->name('phones.add');
+    Route::post('models','Admin\AdminController@modelsStore')->name('models.store');
+    Route::post('/manufakturers', 'Admin\AdminController@phonesStore')->name('phones.store');
 
 });

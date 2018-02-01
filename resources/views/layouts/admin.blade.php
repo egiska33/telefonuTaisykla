@@ -43,7 +43,7 @@
                 <a href="{{route('models.add')}}">Add Model</a>
             </li>
             <li>
-                <a href="{{route('phones.list')}}">Add Phone</a>
+                <a href="{{route('phones.add')}}">Add Phone</a>
             </li>
 
         </ul>
