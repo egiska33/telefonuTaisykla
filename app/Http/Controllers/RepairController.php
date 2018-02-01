@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreRepairRequest;
 use App\PhoneModel;
 use App\Repair;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RepairController extends Controller
 {
@@ -35,9 +37,14 @@ class RepairController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRepairRequest $request)
     {
-        //
+        $repair = New Repair();
+        $repair->user_id = Auth::user()->id;
+        $repair->model_id = $request->model_id;
+        $repair->message = $request->message;
+        $repair->save();
+        return redirect()->route('home')->with(['message'=>'Aciu jusu duomenys priimti']);
     }
 
     /**

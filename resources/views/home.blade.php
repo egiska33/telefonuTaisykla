@@ -38,7 +38,7 @@
     </div>
     <p>
         {{ $repairs->links() }}
-        <a href="{{route('add.repair')}}" class="btn btn-primary pull-right">Add</a>
+        <a href="{{route('addRepair.create')}}" class="btn btn-primary pull-right">Add</a>
     </p>
 </div>
 @endsection
