@@ -23,3 +23,7 @@ Route::group(['middleware'=> ['auth']], function () {
     Route::resource('/repair', 'RepairController');
     Route::get('/userProfile', 'UserController@index')->name('user.profile');
 });
+
+Route::group(['middleware'=> ['auth', 'admin'], 'prefix'=>'admin'], function (){
+    Route::resource('/', 'Admin\AdminController');
+});
