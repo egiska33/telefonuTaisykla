@@ -11,5 +11,34 @@
             </div>
         </div>
     </div>
+    <div class="col-md-10 col-md-offset-1">
+
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Vardas</th>
+                <th scope="col">Modelis</th>
+                <th scope="col">Komentaras</th>
+                <th scope="col">Data</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            @foreach($repairs as $repair)
+                <tr>
+                    <th>{{$repair->user->name}}</th>
+                    <td>{{$repair->model->manufacturer->name}} {{$repair->model->model}}</td>
+                    <td>{{$repair->message}}</td>
+                    <td>{{$repair->created_at}}</td>
+                </tr>
+            @endforeach
+
+            </tbody>
+        </table>
+    </div>
+    <p>
+        {{ $repairs->links() }}
+        <a href="{{route('add.repair')}}" class="btn btn-primary pull-right">Add</a>
+    </p>
 </div>
 @endsection

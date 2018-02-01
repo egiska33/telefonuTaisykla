@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\PhoneModel;
 use App\Repair;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,8 @@ class RepairController extends Controller
      */
     public function create()
     {
-        //
+        $models = PhoneModel::all();
+        return view('repair.create', compact('models'));
     }
 
     /**
