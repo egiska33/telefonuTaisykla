@@ -32,5 +32,7 @@ Route::group(['middleware'=> ['auth', 'admin'], 'prefix'=>'admin'], function (){
     Route::get('/manufakturers/add', 'Admin\AdminController@phonesCreate')->name('phones.add');
     Route::post('models','Admin\AdminController@modelsStore')->name('models.store');
     Route::post('/manufakturers', 'Admin\AdminController@phonesStore')->name('phones.store');
-
+    Route::get('/repairs/edit/{repair}', 'Admin\AdminController@repairsEdit')->name('repairsList.edit');
+    Route::put('/repairs/{repair}', 'Admin\AdminController@repairsUpdate')->name('repairsList.update');
+    Route::delete('/repairs/{repair}', 'Admin\AdminController@repairsDestroy')->name('repairsList.delete');
 });

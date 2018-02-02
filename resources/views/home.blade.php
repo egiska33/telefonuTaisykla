@@ -3,6 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row">
+        @if(session('message'))
+            <div class="alert alert-info">{{session('message')}}</div>
+        @endif
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-body">

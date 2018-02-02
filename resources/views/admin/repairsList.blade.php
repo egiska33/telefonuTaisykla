@@ -2,6 +2,9 @@
 
 @section('content')
     <h2>User table</h2>
+    @if(session('message'))
+        <div class="alert alert-info">{{session('message')}}</div>
+    @endif
     <table class="table">
         <thead class="thead-dark">
         <tr>
@@ -17,7 +20,13 @@
                 <td>{{$repair->user->name}}</td>
                 <td>{{$repair->model->manufacturer->name}} {{$repair->model->model}}</td>
                 <td>{{$repair->message}}</td>
-                <td><a href="" class="btn btn-danger float-right">Delete</a><a href="" class="btn btn-primary float-right">Edit</a></td>
+                <td><form action="{{route('repairsList.delete', $repair)}}" method="POST"
+                    style="display: inline"
+                    onsubmit="return confirm('Are you sure?');">
+                    <input type="hidden" name="_method" value="DELETE">
+                    {{ csrf_field() }}
+                    <button class="btn btn-danger  float-right">Delete</button>
+                    </form><a href="{{route('repairsList.edit', $repair)}}" class="btn btn-primary float-right">Edit</a></td>
             </tr>
         @endforeach
         </tbody>

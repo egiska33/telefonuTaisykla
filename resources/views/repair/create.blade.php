@@ -4,6 +4,13 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
+                @if ($errors->count() > 0)
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li class="alert alert-danger">{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                @endif
                 <form action="{{route('repair.store')}}" method="POST">
                     {{ csrf_field() }}
                     <div class="form-group col-md-4 col-md-offset-4">
