@@ -12,7 +12,7 @@ class Repair extends Model
     {
         return $this->belongsTo(User::class);
     }
-    public function model()
+    public function phoneModel()
     {
         return $this->belongsTo(PhoneModel::class);
     }

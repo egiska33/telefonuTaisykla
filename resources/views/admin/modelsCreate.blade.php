@@ -14,7 +14,7 @@
         {{ csrf_field() }}
         <div class="form-group">
             <label for="manufacturer">Select Phone</label>
-            <select class="form-control" name="manufacturer_id">
+            <select class="form-control" name="phone_manufacturer_id">
                 @foreach($phones as $phone)
                 <option value="{{$phone->id}}">{{$phone->name}}</option>
                 @endforeach

@@ -15,7 +15,7 @@ class CreatePhoneModelsTable extends Migration
     {
         Schema::create('phone_models', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('manufacturer_id');
+            $table->integer('phone_manufacturer_id');
             $table->string('model');
             $table->timestamps();
         });

@@ -18,7 +18,7 @@
         @foreach($repairs as $repair)
             <tr>
                 <td>{{$repair->user->name}}</td>
-                <td>{{$repair->model->manufacturer->name}} {{$repair->model->model}}</td>
+                <td>{{$repair->phoneModel->phoneManufacturer->name}} {{$repair->phoneModel->model}}</td>
                 <td>{{$repair->message}}</td>
                 <td><form action="{{route('repairsList.delete', $repair)}}" method="POST"
                     style="display: inline"

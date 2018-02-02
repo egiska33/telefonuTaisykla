@@ -26,24 +26,24 @@
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li class="sidebar-brand">
-                <a href="#">
-                    Start Bootstrap
+                <a href="{{route('index')}}">
+                    Admin Panele
                 </a>
             </li>
             <li>
-                <a href="{{route('home')}}">Main page</a>
+                <a href="{{route('home')}}">Pagrindinis Puslapis</a>
             </li>
             <li>
-                <a href="{{route('users.list')}}">Users list</a>
+                <a href="{{route('users.list')}}">Vartotoju sarasas</a>
             </li>
             <li>
-                <a href="{{route('repairs.list')}}">Repair list</a>
+                <a href="{{route('repairs.list')}}">Registruotu gedimu sarasas</a>
             </li>
             <li>
-                <a href="{{route('models.add')}}">Add Model</a>
+                <a href="{{route('models.add')}}">Prideti telefono modeli</a>
             </li>
             <li>
-                <a href="{{route('phones.add')}}">Add Phone</a>
+                <a href="{{route('phones.add')}}">Prideti telefono gamintoja</a>
             </li>
 
         </ul>
@@ -54,7 +54,7 @@
     <div id="page-content-wrapper">
         <div class="container-fluid">
             @yield('content')
-            <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+            <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Soninis meniu</a>
         </div>
     </div>
     <!-- /#page-content-wrapper -->

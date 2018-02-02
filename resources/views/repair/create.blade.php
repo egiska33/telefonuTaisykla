@@ -15,10 +15,10 @@
                     {{ csrf_field() }}
                     <div class="form-group col-md-4 col-md-offset-4">
                         <label for="model">Pasirinkite modeli</label>
-                        <select class="form-control" name="model_id">
+                        <select class="form-control" name="phone_model_id">
                             <option value=""></option>
                         @foreach($models as $model)
-                            <option value="{{$model->id}}">{{$model->manufacturer->name}} {{$model->model}}</option>
+                            <option value="{{$model->id}}">{{$model->phoneManufacturer->name}} {{$model->model}}</option>
                         @endforeach
                         </select>
                     </div>

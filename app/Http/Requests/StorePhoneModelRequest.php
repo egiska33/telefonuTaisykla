@@ -24,7 +24,7 @@ class StorePhoneModelRequest extends FormRequest
     public function rules()
     {
         return [
-            'manufacturer_id'=>'required',
+            'phone_manufacturer_id'=>'required',
             'model'=> 'required'
         ];
     }

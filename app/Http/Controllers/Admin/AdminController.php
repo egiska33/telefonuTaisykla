@@ -17,7 +17,8 @@ class AdminController extends Controller
 
     public function index()
     {
-        return view ('admin.index');
+        $phones = PhoneManufacturer::all();
+        return view ('admin.index', compact('phones'));
     }
 
 
@@ -66,14 +67,14 @@ class AdminController extends Controller
     {
         $this->authorize('update', Repair::class);
         $repair = Repair::findOrFail($repair->id);
-        $models = PhoneModel::orderBy('manufacturer_id')->get();
+        $models = PhoneModel::orderBy('phone_manufacturer_id')->get();
         return view('admin.repairsEdit', compact('repair', 'models'));
     }
 
     public function repairsUpdate(StoreRepairRequest $request, Repair $repair)
     {
         $this->authorize('update', Repair::class);
-        $repair->model_id = $request->model_id;
+        $repair->phone_model_id = $request->phone_model_id;
         $repair->message = $request->message;
         $repair->update();
         return redirect()->route('repairs.list')->with(['message'=>'Informacija pakoreguota sekmingai']);
@@ -81,7 +82,7 @@ class AdminController extends Controller
 
     public function repairsDestroy(Repair $repair)
     {
-        $this->authorize('delete    ', Repair::class);
+        $this->authorize('delete', Repair::class);
         $repair->delete();
         return redirect()->route('repairs.list')->with(['message' => 'Informacija istrinti sekmingai']);
     }

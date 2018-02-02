@@ -27,7 +27,7 @@ class RepairController extends Controller
      */
     public function create()
     {
-        $models = PhoneModel::orderBy('manufacturer_id')->get();
+        $models = PhoneModel::all();
         return view('repair.create', compact('models'));
     }
 
@@ -41,7 +41,7 @@ class RepairController extends Controller
     {
         $repair = New Repair();
         $repair->user_id = Auth::user()->id;
-        $repair->model_id = $request->model_id;
+        $repair->phone_model_id = $request->phone_model_id;
         $repair->message = $request->message;
         $repair->save();
         return redirect()->route('home')->with(['message'=>'Aciu jusu duomenys priimti']);
@@ -68,7 +68,7 @@ class RepairController extends Controller
     {
         $repair = Repair::findOrFail($repair->id);
 
-        $models = PhoneModel::orderBy('manufacturer_id')->get();
+        $models = PhoneModel::orderBy('phone_manufacturer_id')->get();
         return view('repair.update', compact('models', 'repair'));
     }
 
@@ -81,7 +81,7 @@ class RepairController extends Controller
      */
     public function update(StoreRepairRequest $request, Repair $repair)
     {
-        $repair->model_id = $request->model_id;
+        $repair->phone_model_id = $request->phone_model_id;
         $repair->message = $request->message;
         $repair->update();
         return redirect()->route('home')->with(['message'=>'Aciu jusu duomenys atnaujinti']);

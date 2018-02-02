@@ -30,7 +30,7 @@
             @foreach($repairs as $repair)
                 <tr>
                     <th>{{$repair->user->name}}</th>
-                    <td>{{$repair->model->manufacturer->name}} {{$repair->model->model}}</td>
+                    <td>{{$repair->phoneModel->phoneManufacturer->name}} {{$repair->phoneModel->model}}</td>
                     <td>{{$repair->message}}</td>
                     <td>{{$repair->created_at->diffForHumans()}}</td>
                 </tr>

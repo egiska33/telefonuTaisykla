@@ -18,7 +18,7 @@
                 @foreach($repairs as $repair)
                     <tr>
                         <th>{{ Carbon\Carbon::parse($repair->created_at)->diffForHumans() }}</th>
-                        <td>{{$repair->model->manufacturer->name}} {{$repair->model->model}}</td>
+                        <td>{{$repair->phoneModel->phoneManufacturer->name}} {{$repair->phoneModel->model}}</td>
                         <td>{{$repair->message}} <a href="{{route('repair.edit', $repair)}}" class="btn btn-primary pull-right">Edit</a></td>
                     </tr>
                 @endforeach

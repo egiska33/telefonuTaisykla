@@ -24,7 +24,7 @@ class StoreRepairRequest extends FormRequest
     public function rules()
     {
         return [
-            'model_id'=>'required',
+            'phone_model_id'=>'required',
             'message'=> 'required|max:160'
         ];
     }
