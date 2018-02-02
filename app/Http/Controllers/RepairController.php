@@ -27,7 +27,7 @@ class RepairController extends Controller
      */
     public function create()
     {
-        $models = PhoneModel::all();
+        $models = PhoneModel::orderBy('manufacturer_id')->get();
         return view('repair.create', compact('models'));
     }
 
@@ -68,7 +68,7 @@ class RepairController extends Controller
     {
         $repair = Repair::findOrFail($repair->id);
 
-        $models = PhoneModel::all();
+        $models = PhoneModel::orderBy('manufacturer_id')->get();
         return view('repair.update', compact('models', 'repair'));
     }
 

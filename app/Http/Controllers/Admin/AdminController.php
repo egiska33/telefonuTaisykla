@@ -64,13 +64,15 @@ class AdminController extends Controller
 
     public function repairsEdit(Repair $repair)
     {
+        $this->authorize('update', Repair::class);
         $repair = Repair::findOrFail($repair->id);
-        $models = PhoneModel::all();
+        $models = PhoneModel::orderBy('manufacturer_id')->get();
         return view('admin.repairsEdit', compact('repair', 'models'));
     }
 
     public function repairsUpdate(StoreRepairRequest $request, Repair $repair)
     {
+        $this->authorize('update', Repair::class);
         $repair->model_id = $request->model_id;
         $repair->message = $request->message;
         $repair->update();
@@ -79,6 +81,7 @@ class AdminController extends Controller
 
     public function repairsDestroy(Repair $repair)
     {
+        $this->authorize('delete    ', Repair::class);
         $repair->delete();
         return redirect()->route('repairs.list')->with(['message' => 'Informacija istrinti sekmingai']);
     }
